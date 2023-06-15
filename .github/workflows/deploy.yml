@@ -1,3 +1,4 @@
+
 name: Deploy to GitHub Pages
 
 on:
@@ -26,5 +27,8 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          npm install -g gh-pages
-          npx gh-pages -d out
+          npx next build
+          npx next export
+
+          npx gh-pages@3.2.3 -d out -b gh-pages
+
